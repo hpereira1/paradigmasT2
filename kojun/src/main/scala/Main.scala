@@ -1,5 +1,27 @@
-@main def hello: Unit =
-  println("Hello world!")
-  println(msg)
-
-def msg = "I was compiled by Scala 3. :)"
+object Kojun {
+  
+  def main(args:Array[String]): Unit = {
+    val problem = 
+      Array(
+        Array(0,0,0,0,0,0,0,0),
+        Array(0,1,3,0,0,0,0,0),
+        Array(0,0,0,0,0,3,0,0),
+        Array(0,0,3,0,0,0,0,0),
+        Array(0,5,0,3,0,0,0,0),
+        Array(0,2,0,0,0,0,0,0),
+        Array(0,0,0,0,0,0,3,0),
+        Array(0,0,5,3,0,0,0,0),
+      )
+    val regions = 
+      Array(
+        Array(0,0,1,1,2,3,4,4),
+        Array(0,0,5,1,7,3,3,4),
+        Array(5,5,5,6,7,8,9,9),
+        Array(10,10,10,6,7,8,8,9),
+        Array(11,6,6,6,6,8,8,9),
+        Array(11,12,13,13,13,14,15,9),
+        Array(12,12,12,12,17,14,14,14),
+        Array(16,17,17,17,17,14,18,18),
+      )
+  }
+}
