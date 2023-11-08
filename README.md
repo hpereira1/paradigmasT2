@@ -1,0 +1,1 @@
+# paradigmasT2
