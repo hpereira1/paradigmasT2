@@ -1,5 +1,4 @@
-import scala.util.control.Breaks._
-object Kojun {
+id: file://<WORKSPACE>/kojun/src/main/scala/Main.scala:[2022..2025) in Input.VirtualFile("file://<WORKSPACE>/kojun/src/main/scala/Main.scala", "object Kojun {
   
   type Board = Array[Array[Int]]
   type mergedBoard = Array[Array[(Int, Int)]]
@@ -9,43 +8,8 @@ object Kojun {
     board.flatten.count(cell => cell._2 == board(row)(col)._2)
   }
 
-  def solve(board: mergedBoard, currentRow: Int = 0, currentCol: Int = 0): Option[mergedBoard] = {
-  // Check if we have reached the end of the board
-  if (currentRow == board.length) {
-    Some(board)
-  } else {
-    // Calculate the next row and column
-    val (nextRow, nextCol) = if (currentCol == board(currentRow).length - 1) {
-      (currentRow + 1, 0)
-    } else {
-      (currentRow, currentCol + 1)
-    }
-
-    // If the current cell is already filled, skip to the next cell
-    if (board(currentRow)(currentCol)._1 != 0) {
-      solve(board, nextRow, nextCol)
-    } else {
-      var result: Option[mergedBoard] = None
-      breakable {
-        for (num <- 1 to regionSize(board, currentRow, currentCol)) {
-          if (verifyPossibleNumber(num, board, currentRow, currentCol)) {
-            board(currentRow)(currentCol) = (num, board(currentRow)(currentCol)._2)
-            solve(board, nextRow, nextCol) match {
-              case Some(solvedBoard) => 
-                result = Some(solvedBoard)
-                break
-              case None => 
-                board(currentRow)(currentCol) = (0, board(currentRow)(currentCol)._2) // Backtrack
-            }
-          }
-        }
-      }
-      result
-    }
-  }
-  }
    // Função para verificar se um número esta ausente na regiao da celula selecionada
-  def verifyRegion(num: Int,  board: mergedBoard, row: Int, col: Int): Boolean = {
+  def verifyRegion(num: Int, row: Int, col: Int, board: mergedBoard): Boolean = {
     // flatten a matriz board e filtra as células que estão na região alvo
     val cellsInRegion = board.flatten.filter(_._2 == board(row)(col)._2)
     // Conta a ocorrência do 'num' na região e verifica se ja esta na regiao, retorna true se num nao for um valor contido na regiao
@@ -78,22 +42,20 @@ object Kojun {
     checkuP && checkDown
   }
 
-  def checkOrthogonallyAdjacent(num : Int, board : mergedBoard, row : Int, col : Int): Boolean = {
+  def checkOrthogonallyAdjacent(num : Int, board : Board, row : Int, col : Int): Boolean = {
     val lenBoard = board.length
-    val notUp = if (row - 1 >= 0) board(row - 1)(col)._1 != num else true
+    val notUp = if (row - 1 >= 0) board(row - 1)(col) != num else true
 
-    val notDown = if (row + 1 < lenBoard ) board(row + 1)(col)._1 != num else true
+    val notDown = if (row + 1 < lenBoard ) board(row + 1)(col) != num else true
 
-    val notLeft = if (col - 1 >= 0) board(row)(col - 1)._1 != num else true
+    val notLeft = if (col - 1 >= 0) board(row)(col - 1) != num else true
 
-    val notRight = if (col + 1 < lenBoard) board(row)(col + 1)._1 != num else true 
+    val notRight = if (col + 1 < lenBoard) board(row)(col + 1) != num else true 
 
     notUp && notDown && notLeft && notRight
   }
   
-  def verifyPossibleNumber(num : Int, board : mergedBoard, row : Int, col : Int): Boolean = {
-    checkOrthogonallyAdjacent(num, board, row, col) && checkUpDown(num, board, row, col) && verifyRegion(num, board, row, col)
-  }
+  def 
   
   def mergeMatrices(board: Board, reg: Board): mergedBoard = {
     // Check if both matrices have the same dimensions
@@ -158,13 +120,16 @@ object Kojun {
     // println(s"Cell Below: ${mergedMatrix(testRow + 1)(testCol)}")
 
     // println(s"Test 4 (Correctly Positioned): ${Kojun.checkUpDown(4, mergedMatrix, testRow, testCol)}")
-    // println(regionSize(mergedMatrix,2,0))
-    // Kojun.printMergedMat(mergedMatrix)
-    val result = solve(mergedMatrix)
-    result match {
-      case Some(board) => Kojun.printMergedMat(board)
-      case None => println("no solution")
-    }
+    println(regionSize(mergedMatrix,2,0))
+
+    Kojun.printMergedMat(mergedMatrix)
     }  
-    
 }
+")
+file://<WORKSPACE>/kojun/src/main/scala/Main.scala
+file://<WORKSPACE>/kojun/src/main/scala/Main.scala:60: error: expected identifier; obtained def
+  def mergeMatrices(board: Board, reg: Board): mergedBoard = {
+  ^
+#### Short summary: 
+
+expected identifier; obtained def
