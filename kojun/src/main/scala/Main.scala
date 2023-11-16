@@ -1,8 +1,38 @@
 object Kojun {
   
   type Board = Array[Array[Int]]
+  type mergedBoard = Array[Array[(Int, Int)]]
   
+  //retorna o tamanho da regiao da celula
+  def regionSize(board: mergedBoard, row: Int, col: Int): Int = {
+    board.flatten.count(cell => cell._2 == board(row)(col)._2)
+  }
 
+  def checkUpDown(num : Int, board : mergedBoard, row: Int, col : Int): Boolean = {
+    val checkuP = if (row > 0) {
+      if (board(row)(col)._2 == board(row - 1)(col)._2) {
+        num < board(row-1)(col)._1
+      } else {
+        true
+      }
+    } else {
+      true
+    }
+    val checkDown = if (row < board.length - 1) {
+      // Check se a celula abaixo esta na mesma regiao 
+      if (board(row)(col)._2 == board(row + 1)(col)._2) {
+        // se esta na mesma regiao, checa se o valor da celula abaixo é menor que num
+        num > board(row + 1)(col)._1
+      } else {
+        // regioes diferentes, regra nao se aplica
+        true
+      }
+    } else {
+      // linha mais abaixo, sem cel abaixo
+      true
+    }
+    checkuP && checkDown
+  }
 
   def checkOrthogonallyAdjacent(num : Int, board : Board, row : Int, col : Int): Boolean = {
     val lenBoard = board.length
@@ -16,10 +46,26 @@ object Kojun {
 
     notUp && notDown && notLeft && notRight
   }
+  
+  def mergeMatrices(board: Board, reg: Board): mergedBoard = {
+    // Check if both matrices have the same dimensions
+    require(board.length == reg.length && board(0).length == reg(0).length, "Matrices must be of the same size")
 
-
+    // Merge the matrices into a matrix of tuples
+    board.zipWithIndex.map { case (row, i) =>
+      row.zipWithIndex.map { case (num, j) =>
+        (num, reg(i)(j))
+      }
+    }
+  }
+  def printMergedMat(mergedmatrix : Kojun.mergedBoard ) : Unit = {
+    mergedmatrix.foreach { row =>
+      val rowString = row.map { case (num, region) => s"($num, $region)" }.mkString(" ")
+      println(rowString)
+    } 
+  }
   def main(args:Array[String]): Unit = {
-    val problem = 
+    val problem : Kojun.Board= 
       Array(
         Array(0,0,0,0,0,0,0,0),
         Array(0,1,3,0,0,0,0,0),
@@ -30,7 +76,7 @@ object Kojun {
         Array(0,0,0,0,0,0,3,0),
         Array(0,0,5,3,0,0,0,0),
       )
-    val regions = 
+    val regions : Kojun.Board = 
       Array(
         Array(0,0,1,1,2,3,4,4),
         Array(0,0,5,1,7,3,3,4),
@@ -41,14 +87,31 @@ object Kojun {
         Array(12,12,12,12,17,14,14,14),
         Array(16,17,17,17,17,14,18,18),
       )
-      
-      val x =checkOrthogonallyAdjacent(3, problem, 0, 2) // false notDown == false
-      val x1 =checkOrthogonallyAdjacent(3, problem, 1, 3) // false notLeft == false
-      val x2 =checkOrthogonallyAdjacent(3, problem, 3, 1) // false notRight == false
-      val x3 =checkOrthogonallyAdjacent(3, problem, 3, 5) // false notUp == false
-      println(x)
-      println(x1)
-      println(x2)
-      println(x3)
-  }
+    
+    // val x =Kojun.checkOrthogonallyAdjacent(3, problem, 0, 2) // false notDown == false
+    // val x1 =Kojun.checkOrthogonallyAdjacent(3, problem, 1, 3) // false notLeft == false
+    // val x2 =Kojun.checkOrthogonallyAdjacent(3, problem, 3, 1) // false notRight == false
+    // val x3 =Kojun.checkOrthogonallyAdjacent(3, problem, 3, 5) // false notUp == false
+    // println(x)
+    // println(x1)
+    // println(x2)
+    // println(x3)
+    val mergedMatrix : Kojun.mergedBoard= Kojun.mergeMatrices(problem, regions)
+        // Test Cases for checkUp
+    // println(s"Test 1 (Top Row): ${Kojun.checkUpDown(2, mergedMatrix, 0, 1)}")
+    // println(s"Test 2 (Bottom Row): ${Kojun.checkUpDown(2, mergedMatrix, mergedMatrix.length - 1, 1)}")
+    // println(s"Test 3 (Correctly Positioned): ${Kojun.checkUpDown(2, mergedMatrix, 1, 1)}")
+    // println(s"Test 4 (Incorrectly Positioned): ${Kojun.checkUpDown(4, mergedMatrix, 2, 1)}")
+    // println(s"Test 5 (Different Regions): ${Kojun.checkUpDown(3, mergedMatrix, 2, 1)}")
+    // val testRow = 2
+    // val testCol = 1
+    // println(s"Cell Above: ${mergedMatrix(testRow - 1)(testCol)}")
+    // println(s"Current Cell: ${mergedMatrix(testRow)(testCol)}")
+    // println(s"Cell Below: ${mergedMatrix(testRow + 1)(testCol)}")
+
+    // println(s"Test 4 (Correctly Positioned): ${Kojun.checkUpDown(4, mergedMatrix, testRow, testCol)}")
+    println(regionSize(mergedMatrix,2,0))
+
+    Kojun.printMergedMat(mergedMatrix)
+    }  
 }
