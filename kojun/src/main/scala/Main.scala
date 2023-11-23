@@ -102,7 +102,7 @@ object Kojun {
   } 
   
   def verifyPossibleNumber(num : Int, board : mergedBoard, row : Int, col : Int): Boolean = {
-    // verdadeiro se as tres validacoes acima forem verdadeiras
+    // verdadeiro se as tres validacoes abaixo forem verdadeiras
     checkOrthogonallyAdjacent(num, board, row, col) && checkUpDown(num, board, row, col) && verifyRegion(num, board, row, col)
   }
   
@@ -131,27 +131,22 @@ object Kojun {
 
 
   def main(args:Array[String]): Unit = {
-    /* exemplo 3x3 sem valor no tabuleiro
-    val t :Kojun.Board = 
+    val problem4x4 :Kojun.Board = 
       Array (
-        Array(0,0,0),
-        Array(0,0,0),
-        Array(0,0,0),
+        Array(0,0,0,0),
+        Array(0,0,0,0),
+        Array(0,0,0,0),
+        Array(0,0,0,0),
       )
-    val t1 :Kojun.Board = 
+    val regions4x4 :Kojun.Board = 
       Array (
-        Array(0,0,2),
-        Array(1,1,4),
-        Array(3,3,4),
+        Array(0,0,2,2),
+        Array(1,1,4,4),
+        Array(3,3,4,5),
+        Array(5,5,5,5),
       )
-    val a : Kojun.mergedBoard = Kojun.mergeMatrices(t, t1)
-    println("a")
-    val t12 = solve(a)
-    t12 match {
-      case Some(board) => Kojun.printMergedMat(board)
-      case None => println("no solution")
-    }*/
-
+    val mergedMatrix4x4 : Kojun.mergedBoard = Kojun.mergeMatrices(problem4x4, regions4x4)
+    
     // exemplo da pagina inicial https://www.janko.at/Raetsel/Kojun/index.htm
     val problem8x8 : Kojun.Board= 
       Array(
@@ -206,6 +201,13 @@ object Kojun {
       )
     val mergedMatrix10x10 : Kojun.mergedBoard= Kojun.mergeMatrices(problem10x10, regions10x10)
     
+    println("Board4x4")
+    val result4x4 = solve(mergedMatrix4x4)
+    result4x4 match {
+      case Some(board) => Kojun.printMergedMat(board)
+      case None => println("no solution")
+    }
+
     println("Board8x8")
     val result8x8 = solve(mergedMatrix8x8)
     result8x8 match {
@@ -219,6 +221,5 @@ object Kojun {
       case Some(board) => Kojun.printMergedMat(board) // se houver solucao, print board
       case None => println("no solution")
     }
- 
     }  
 }

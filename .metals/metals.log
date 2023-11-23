@@ -831,3 +831,83 @@ INFO: Unsupported notification method: $/setTrace
 2023.11.22 23:11:22 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala
 2023.11.22 23:12:11 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala
 2023.11.22 23:15:05 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala
+2023.11.22 23:17:35 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala
+Nov 22, 2023 11:26:51 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 22, 2023 11:26:51 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 23, 2023 12:01:04 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 23, 2023 12:01:05 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 23, 2023 12:01:05 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2023.11.23 00:01:43 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala
+2023.11.23 00:02:30 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala
+2023.11.23 00:03:56 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala
+2023.11.23 00:03:57 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala
+2023.11.23 00:04:43 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala
+Nov 23, 2023 12:04:47 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 23, 2023 12:04:48 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 23, 2023 12:04:48 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 23, 2023 12:16:40 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 5679
+Exception in thread "pool-3-thread-7" java.lang.InterruptedException
+	at scala.meta.internal.metals.FutureCancelToken.checkCanceled(FutureCancelToken.scala:29)
+2023.11.23 00:27:27 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala	at scala.meta.internal.pc.CompilerAccess.onCompilerJobQueue$$anonfun$1(CompilerAccess.scala:230)
+
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:152)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Nov 23, 2023 12:27:28 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 23, 2023 12:27:29 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 23, 2023 12:27:29 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 23, 2023 12:32:09 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 23, 2023 12:32:09 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 23, 2023 12:32:10 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 23, 2023 12:32:16 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 23, 2023 12:44:21 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2023.11.23 01:20:56 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala
+2023.11.23 01:20:57 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala
+Nov 23, 2023 1:21:18 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 6051
+Nov 23, 2023 1:22:29 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 6228
+Nov 23, 2023 1:22:31 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 6235
+2023.11.23 01:23:01 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala
+Exception in thread "pool-3-thread-8" java.lang.InterruptedException
+	at scala.meta.internal.metals.FutureCancelToken.checkCanceled(FutureCancelToken.scala:29)
+	at scala.meta.internal.pc.CompilerAccess.onCompilerJobQueue$$anonfun$1(CompilerAccess.scala:230)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:152)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023.11.23 01:23:21 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala
+2023.11.23 01:23:33 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala
+2023.11.23 01:38:53 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala
+Nov 23, 2023 1:38:53 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 6395
+Nov 23, 2023 1:43:21 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 6421
+Nov 23, 2023 1:46:15 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Nov 23, 2023 1:46:16 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2023.11.23 01:46:29 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala
+2023.11.23 02:00:09 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala
+2023.11.23 02:35:43 WARN  no build target for: /home/hpereira1/Documents/paradigmasT2/kojun/src/main/scala/Main.scala
+Nov 23, 2023 2:40:14 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 6615
